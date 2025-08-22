@@ -12,15 +12,16 @@ using namespace std;
 class Server{
     private:
     int serverSocket;
-    int clientSocket;
     sockaddr_in serverAddress;
 
+    void handlerClient(int);
+    string receive_data(int);
+    void response_data(const char *, int, int);
+    
     public:
     Server(int);
     ~Server();
     void new_connection();
-    void receive_data();
-    void response_data(const char *, int);
 };
 
 #endif
