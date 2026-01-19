@@ -14,3 +14,5 @@ Luego en la terminal del servidor:
 ```bash
 ./bin/server
 ```
+
+Ahora podrá enviar mensajes de una terminal a la otra escribiendo en cualquiera de ellas.
