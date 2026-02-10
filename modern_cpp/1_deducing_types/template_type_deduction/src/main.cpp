@@ -1,8 +1,8 @@
 /**
  * Examples of ParamType:
- * - [A] It's a reference or pointer, but not a universal reference.
- * - [B] It's a universal refrence.
- * - [C] It's neither a pointer nor a reference.
+ * - [A] It's a reference or pointer, but not a universal reference. ❌️ copy | ✅️ presevere const | ❌️ presevere l/r value
+ * - [B] It's a universal refrence.                                  ❌️ copy | ✅️ presevere const | ✅️ presevere l/r value
+ * - [C] It's neither a pointer nor a reference.                     ✅️ copy | ❌️ presevere const | ❌️ presevere l/r value
  * - [D] Function arguments decay
  *
  * Then has a example with as Array arguments decay
@@ -82,6 +82,11 @@ void case_C()
     //
     // C(ptr); // pass arg of type const char * const, the content thisn't modifiable, because param it's a pointer pointing to const char
     // however, the adrress in this copy pointer is.
+
+    //C({2}); ERROR
+    //
+    //if: void C(std::initializer_list<T> param)
+    //C({2}) is correct and T is int, param is std::initializer_list<int>
 }
 
 void someFunc(int, double)
